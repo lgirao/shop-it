@@ -19,15 +19,9 @@ router.route("/admin/products").post(
     authorizeRoles("admin"), 
     newProduct
 );
-router.route("/admin/products/:id").put(
-    isAuthenticatedUser, 
-    authorizeRoles("admin"),
-    updateProductById
-);
-router.route("/admin/products/:id").delete(
-    isAuthenticatedUser, 
-    authorizeRoles("admin"),
-    deleteProductById
-);
+router.route("/admin/products/:id")
+    .put(isAuthenticatedUser, authorizeRoles("admin"), updateProductById)
+    .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProductById)
+;
 
 export default router;
