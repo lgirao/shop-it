@@ -1,7 +1,11 @@
 import React from "react";
 import MetaData from "./layout/MetaData";
+import { useGetProductsQuery } from "../redux/api/productsApi";
 
 const Home = () => {
+    const { data, error } = useGetProductsQuery();
+    console.log(data, error);
+
     return (
         <>
         <MetaData title={"Buy Best Products Online"} />
@@ -10,7 +14,9 @@ const Home = () => {
                 <h1 id="products_heading" className="text-secondary">Latest Products</h1>
                 <section id="products" className="mt-5">
                   <div className="row">
-                    {/* Product Item 1 */}
+                    {/* {data?.products?.map((product) =>
+                      <ProductItem />
+                    )} */}
                     <div className="col-sm-12 col-md-6 col-lg-3 my-3">
                       <div className="card p-3 rounded">
                         <img
