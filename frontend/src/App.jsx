@@ -7,6 +7,7 @@ import Home from './components/Home';
 import ProductDetails from './components/product/productDetails';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Profile from './components/user/Profile';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
         <Footer />
