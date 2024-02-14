@@ -113,7 +113,7 @@ const Filters = () => {
                         defaultChecked={defaultCheckHandler("category", category)}
                         onClick={(e) => handleClick(e.target)}
                     />
-                    <label className="form-check-label" for="check4">{category}</label>
+                    <label className="form-check-label" htmlFor="check4">{category}</label>
                 </div>
             ))}
 
@@ -130,7 +130,7 @@ const Filters = () => {
                         defaultChecked={defaultCheckHandler("ratings", rating?.toString())}
                         onClick={(e) => handleClick(e.target)}
                     />
-                    <label className="form-check-label" for="check7">
+                    <label className="form-check-label" htmlFor="check7">
                         <StarRatings
                             rating={rating}
                             starRatedColor="#ffb829"
