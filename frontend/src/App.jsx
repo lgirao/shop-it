@@ -8,6 +8,8 @@ import ProductDetails from './components/product/productDetails';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Profile from './components/user/Profile';
+import UpdateProfile from './components/user/UpdateProfile';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 
 
 function App() {
@@ -23,7 +25,14 @@ function App() {
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route 
+              path="/profile"
+              element={<ProtectedRoute><Profile /></ProtectedRoute>} 
+            />
+            <Route 
+              path="/update_profile" 
+              element={<ProtectedRoute><UpdateProfile /></ProtectedRoute>} 
+            />
           </Routes>
         </div>
         <Footer />

@@ -11,17 +11,17 @@ const SideMenu = () => {
         },
         {
             name: "Update Profile",
-            url: "/profile/update_profile",
+            url: "/update_profile",
             icon: "fas fa-user"
         },
         {
             name: "Upload Avatar",
-            url: "/profile/upload_avatar",
+            url: "/upload_avatar",
             icon: "fas fa-user-circle"
         },
         {
             name: "Update Password",
-            url: "/profile/update_password",
+            url: "/update_password",
             icon: "fas fa-lock"
         },
     ];
@@ -38,8 +38,7 @@ const SideMenu = () => {
                 <Link
                     key={index}
                     to={menuItem.url}
-                    className={
-                        `fw-bold list-group-item list-group-item-action 
+                    className={`fw-bold list-group-item list-group-item-action 
                         ${activeMenuItem.includes(menuItem.url) ? "active" : ""}`
                     }
                     aria-current={activeMenuItem.includes(menuItem.url) ? "true" : "false"}
