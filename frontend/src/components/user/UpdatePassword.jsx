@@ -26,6 +26,10 @@ const UpdatePassword = () => {
     const submitHandler = (e) => {
         e.preventDefault();
 
+        if(password.length < 6) {
+            return toast.error("Your password must be 6 or more characters")
+        }
+
         const userData = {
             oldPassword,
             password
