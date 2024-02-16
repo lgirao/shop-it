@@ -6,6 +6,7 @@ import Loader from '../layout/Loader';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { setCartItem } from "../../redux/features/cartSlice";
+import MetaData from "../layout/MetaData";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -70,6 +71,8 @@ const ProductDetails = () => {
   if(isLoading) return <Loader />;
 
   return (
+    <>
+    <MetaData title={product?.name} />
     <div className="row d-flex justify-content-around">
       <div className="col-12 col-lg-5 img-fluid" id="product_image">
         <div className="p-3">
@@ -164,6 +167,7 @@ const ProductDetails = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

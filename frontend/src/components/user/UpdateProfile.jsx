@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { toast } from 'react-hot-toast';
 import UserLayout from '../layout/UserLayout';
+import MetaData from "../layout/MetaData";
 
 const UpdateProfile = () => {
     const [name, setName] = useState("");
@@ -43,6 +44,9 @@ const UpdateProfile = () => {
     }
 
   return (
+    <>
+    <MetaData title={"Update Profile"} />
+    
     <UserLayout>
       <div className="row wrapper">
         <div className="col-10 col-lg-8">
@@ -83,6 +87,7 @@ const UpdateProfile = () => {
         </div>
       </div>
     </UserLayout>
+    </>
   )
 }
 
