@@ -38,6 +38,10 @@ const ResetPassword = () => {
             return toast.error('Password does not match. Try again.')
         }
 
+        if(password.length < 6) {
+            return toast.error("Your password must be 6 or more characters")
+        }
+
         const userData = {
             password,
             confirmPassword
