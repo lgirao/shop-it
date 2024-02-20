@@ -1,14 +1,12 @@
 import React from 'react';
 import MetaData from '../layout/MetaData';
 import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { calculateOrderCost } from '../../helpers/helper';
 
 const ConfirmOrder = () => {
   const { cartItems, shippingInfo } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.auth);
-
-  const navigate = useNavigate();
 
   const {
     itemsPrice,
@@ -16,10 +14,6 @@ const ConfirmOrder = () => {
     taxPrice,
     totalPrice
   } = calculateOrderCost(cartItems);
-
-  const proceedToPaymentHandler = () => {
-    navigate("/payment")
-  }
 
   return (
     <>
@@ -78,7 +72,7 @@ const ConfirmOrder = () => {
           <p>Total: <span className="order-summary-values">${totalPrice}</span></p>
 
           <hr />
-          <Link to="/payment" id="checkout_btn" className="btn btn-primary w-100" onClick={proceedToPaymentHandler}>
+          <Link to="/payment" id="checkout_btn" className="btn btn-primary w-100">
             Proceed to Payment
           </Link>
         </div>
