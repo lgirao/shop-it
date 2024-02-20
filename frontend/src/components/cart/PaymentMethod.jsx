@@ -1,7 +1,13 @@
 import React from 'react'
+import MetaData from '../layout/MetaData';
+import { CheckmarkIcon } from 'react-hot-toast';
+import CheckoutSteps from './CheckoutSteps';
 
 const PaymentMethod = () => {
   return (
+    <>
+    <MetaData title={"Payment"} />
+    <CheckoutSteps shipping confirmOrder payment />
     <div className="row wrapper">
       <div className="col-10 col-lg-5">
         <form
@@ -42,6 +48,7 @@ const PaymentMethod = () => {
         </form>
       </div>
     </div>
+    </>
   )
 }
 
