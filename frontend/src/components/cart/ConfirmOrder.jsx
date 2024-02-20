@@ -78,9 +78,9 @@ const ConfirmOrder = () => {
           <p>Total: <span className="order-summary-values">${totalPrice}</span></p>
 
           <hr />
-          <a href="/payment" id="checkout_btn" className="btn btn-primary w-100" onClick={proceedToPaymentHandler}>
+          <Link to="/payment" id="checkout_btn" className="btn btn-primary w-100" onClick={proceedToPaymentHandler}>
             Proceed to Payment
-          </a>
+          </Link>
         </div>
       </div>
     </div>
