@@ -11,7 +11,7 @@ const AdminLayout = ({ children }) => {
     },
     {
       name: "New Product",
-      url: "/admin/products/new",
+      url: "/admin/product/new",
       icon: "fas fa-plus"
     },
     {

@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 export const productApi = createApi({
     reducerPath: "productApi",
     baseQuery: fetchBaseQuery({ baseUrl: "/api/v1"}),
-    tagTypes: ["Product"],
+    tagTypes: ["Product", "AdminProducts"],
     endpoints: (builder) => ({
         getProducts: builder.query({
             query: (params) => ({
@@ -35,6 +35,20 @@ export const productApi = createApi({
         canUserReview: builder.query({
             query: (productId) => `/can_review/?productId=${productId}`
         }),
+        getAdminProducts: builder.query({
+            query: () => `/admin/products`,
+            providesTags: ["AdminProducts"]
+        }),
+        addNewProduct: builder.mutation({
+            query(body) {
+              return {
+                url: "/admin/products",
+                method: "POST",
+                body
+              }
+            },
+            invalidatesTags: ["AdminProducts"]
+        }),
     })
 })
 
@@ -42,5 +56,7 @@ export const {
     useGetProductsQuery, 
     useGetProductDetailsQuery,
     useSubmitReviewMutation,
-    useCanUserReviewQuery 
+    useCanUserReviewQuery,
+    useGetAdminProductsQuery,
+    useAddNewProductMutation 
 } = productApi
