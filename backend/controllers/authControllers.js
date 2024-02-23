@@ -225,7 +225,6 @@ export const updateUser = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
-// TODO - remove user avatar from Cloudinary
 
 // Delete user - ADMIN => /api/v1/admin/users/:id
 export const deleteUser = catchAsyncErrors(async (req, res, next) => {
@@ -233,6 +232,11 @@ export const deleteUser = catchAsyncErrors(async (req, res, next) => {
 
     if(!user) {
         return next(new ErrorHandler(`User not found with id ${req.params.id}`, 404));
+    }
+
+    // Remove user avatar from Cloudinary
+    if(user?.avatar?.public_id) {
+        await delete_file(user?.avatar?.public_id);
     }
 
     await user.deleteOne();

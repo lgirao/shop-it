@@ -4,6 +4,7 @@ import { userApi } from "./userApi";
 export const authApi = createApi({
     reducerPath: "authApi",
     baseQuery: fetchBaseQuery({ baseUrl: "/api/v1"}),
+    tagTypes: ["User"],
     endpoints: (builder) => ({
         login: builder.mutation({
             query(body) {
@@ -41,8 +42,43 @@ export const authApi = createApi({
         }),
         logout: builder.query({
             query:() => "/logout"
-        })
+        }),
+        getUsers: builder.query({
+            query:() => `/admin/users`,
+            providesTags: ["User"]
+        }),
+        getUserDetails: builder.query({
+            query: (id) => `/admin/users/${id}`,
+            providesTags: ["User"],
+        }),
+        updateUser: builder.mutation({
+            query({ id, body}) {
+              return {
+                url: `/admin/users/${id}`,
+                method: "PUT",
+                body
+              }
+            },
+            invalidatesTags: ["User"]
+        }),
+        deleteUser: builder.mutation({
+            query(id) {
+              return {
+                url: `/admin/users/${id}`,
+                method: "DELETE",
+              }
+            },
+            invalidatesTags: ["User"]
+        }),
     })
 })
 
-export const { useLoginMutation, useRegisterMutation, useLazyLogoutQuery } = authApi;
+export const { 
+    useLoginMutation, 
+    useRegisterMutation, 
+    useLazyLogoutQuery,
+    useGetUsersQuery,
+    useGetUserDetailsQuery,
+    useUpdateUserMutation,
+    useDeleteUserMutation
+} = authApi;
