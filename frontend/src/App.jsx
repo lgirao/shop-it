@@ -5,6 +5,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import useUserRoutes from './components/routes/UserRoutes';
 import useAdminRoutes from './components/routes/AdminRoutes';
+import NotFound from './components/layout/NotFound';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             {userRoutes}
             {adminRoutes}
+            <Route path='*' element={<NotFound />}/>
           </Routes>
         </div>
         <Footer />
