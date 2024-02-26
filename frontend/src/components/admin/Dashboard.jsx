@@ -70,7 +70,7 @@ const Dashboard = () => {
 
         <div className="row pr-4 my-5">
           <div className="col-xl-6 col-sm-12 mb-3">
-            <div className="card text-white bg-success o-hidden h-100">
+            <div className="card text-white bg-danger o-hidden h-100">
               <div className="card-body">
                 <div className="text-center card-font-size">
                   Sales
@@ -82,7 +82,7 @@ const Dashboard = () => {
           </div>
 
           <div className="col-xl-6 col-sm-12 mb-3">
-            <div className="card text-white bg-danger o-hidden h-100">
+            <div className="card text-white o-hidden h-100" style={{background: "#36a2eb"}}>
               <div className="card-body">
                 <div className="text-center card-font-size">
                   Orders
